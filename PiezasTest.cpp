@@ -64,5 +64,5 @@ TEST(PiezasTest, afterreset){
   Piezas board;
   board.dropPiece(1);
   board.reset();
-	ASSERT_EQ(pieceAt(0,1), Blank);
+	ASSERT_EQ(board.pieceAt(0,1), Blank);
 }
