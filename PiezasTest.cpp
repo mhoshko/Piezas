@@ -58,11 +58,16 @@ TEST(PiezasTest, fullcolumn){
 }
 
 
-
-
 TEST(PiezasTest, afterreset){
   Piezas board;
   board.dropPiece(1);
   board.reset();
 	ASSERT_EQ(board.pieceAt(0,1), Blank);
+}
+
+
+TEST(PiezasTest, nowinner){
+  Piezas board;
+  board.dropPiece(1);
+	ASSERT_EQ(board.gameState(), Invalid);
 }

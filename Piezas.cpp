@@ -82,7 +82,12 @@ Piece Piezas::pieceAt(int row, int column){
  * or horizontally. If both X's and O's have the same max number of pieces in a
  * line, it is a tie.
 **/
-Piece Piezas::gameState()
-{
-    return Blank;
+Piece Piezas::gameState(){
+  for(int i=0; i<3; i++){
+    for(int j=0; j<4; j++){
+      if(board[i][j] == Blank) return Invalid;
+    }
+  }
+  return Blank;
+
 }
