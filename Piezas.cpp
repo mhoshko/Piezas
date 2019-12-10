@@ -20,17 +20,18 @@
  * Constructor sets an empty board (default 3 rows, 4 columns) and
  * specifies it is X's turn first
 **/
-Piezas::Piezas()
-{
-  
+Piezas::Piezas(){
+  turn = X;
+  for(int i=0; i<3; i++)
+    for(int j=0; j<4; j++)
+      board[i][j] = Blank;
 }
 
 /**
  * Resets each board location to the Blank Piece value, with a board of the
  * same size as previously specified
 **/
-void Piezas::reset()
-{
+void Piezas::reset(){
 }
 
 /**
@@ -41,18 +42,28 @@ void Piezas::reset()
  * Out of bounds coordinates return the Piece Invalid value
  * Trying to drop a piece where it cannot be placed loses the player's turn
 **/
-Piece Piezas::dropPiece(int column)
-{
-    return Blank;
+Piece Piezas::dropPiece(int column){
+  if(column<0 || column>3) return Invalid;
+  Piece dropped = Blank;
+  for(int i=0; i<3; i++){
+    if(board[i][column]==Blank){
+      board[i][column] = Turn;
+      dropped = turn;
+      break;
+    }
+  }
+  if(turn == X) turn = O;
+  else turn = X;
+  return dropped;
 }
 
 /**
  * Returns what piece is at the provided coordinates, or Blank if there
  * are no pieces there, or Invalid if the coordinates are out of bounds
 **/
-Piece Piezas::pieceAt(int row, int column)
-{
-    return Blank;
+Piece Piezas::pieceAt(int row, int column){
+  if((row<0 || row>2) && (column<0 || column>3)) return Blank;
+  return board[row][column];
 }
 
 /**
