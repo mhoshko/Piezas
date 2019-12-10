@@ -22,6 +22,7 @@
 **/
 Piezas::Piezas(){
   turn = X;
+  board( 3 , vector<Piece> (4));
   for(int i=0; i<3; i++)
     for(int j=0; j<4; j++)
       board[i][j] = Blank;
