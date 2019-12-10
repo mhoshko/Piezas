@@ -25,11 +25,6 @@ TEST(PiezasTest, noStepsYet){
 	ASSERT_EQ(board.pieceAt(0, 2), Blank);
 }
 
-TEST(PiezasTest, noStepsTurn){
-  Piezas board;
-	ASSERT_EQ(turn, X);
-}
-
 
 TEST(PiezasTest, checkturnchange){
   Piezas board;
@@ -70,4 +65,13 @@ TEST(PiezasTest, turnafternomove){
   board.dropPiece(1);
   board.dropPiece(1)
 	ASSERT_EQ(turn, X);
+}
+
+
+
+TEST(PiezasTest, turnafternomove){
+  Piezas board;
+  board.dropPiece(1);
+  board.reset();
+	ASSERT_EQ(pieceAt(0,1), Blank);
 }
