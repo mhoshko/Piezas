@@ -58,15 +58,6 @@ TEST(PiezasTest, fullcolumn){
 }
 
 
-TEST(PiezasTest, turnafternomove){
-  Piezas board;
-  board.dropPiece(1);
-  board.dropPiece(1);
-  board.dropPiece(1);
-  board.dropPiece(1)
-	ASSERT_EQ(turn, X);
-}
-
 
 
 TEST(PiezasTest, afterreset){
