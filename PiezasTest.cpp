@@ -69,7 +69,7 @@ TEST(PiezasTest, turnafternomove){
 
 
 
-TEST(PiezasTest, turnafternomove){
+TEST(PiezasTest, afterreset){
   Piezas board;
   board.dropPiece(1);
   board.reset();
