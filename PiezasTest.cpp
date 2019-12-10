@@ -63,7 +63,7 @@ TEST(PiezasTest, fullcolumn){
 }
 
 
-TEST(PiezasTest, fullcolumn){
+TEST(PiezasTest, turnafternomove){
   Piezas board;
   board.dropPiece(1);
   board.dropPiece(1);
