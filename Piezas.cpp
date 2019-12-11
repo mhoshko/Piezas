@@ -94,7 +94,7 @@ Piece Piezas::gameState(){
       if(board[i][j]==board[i][j+1]){
         runningTotal+=1;
         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-        else if(board[i][j]==O && runningTotal>numY) numO = runningTotal;
+        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
       }else runningTotal = 0;
     }
   }
