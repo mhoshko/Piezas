@@ -121,5 +121,5 @@ TEST(PiezasTest, Tie){
 	board.dropPiece(1);
 	board.dropPiece(2);
 	board.dropPiece(1);
-	ASSERT_EQ(board.gameState(), Blank);
+	ASSERT_EQ(board.gameState(), Invalid);
 }
