@@ -88,6 +88,46 @@ Piece Piezas::gameState(){
       if(board[i][j] == Blank) return Invalid;
     }
   }
-  return Blank;
+  int numX = 0, numY = 0, runningTotal = 0;
+  for(int i=0; i<3; i++){
+    for(int j=0; j<3; j++){
+      if(board[i][j]==board[i][j+1]){
+        runningTotal+=1;
+        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+        else if(board[i][j]==Y && runningTotal>numY) numY = runningTotal;
+      }else runningTotal = 0;
+    }
+  }
+  for(int j=0; j<4; j++){
+    for(int i=0; i<2; i++){
+      if(board[i][j]==board[i+1][j]){
+        runningTotal+=1;
+        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+        else if(board[i][j]==Y && runningTotal>numY) numY = runningTotal;
+      }else runningTotal = 0;
+    }
+  }
+  if(numX == numY) return Blank;
+  else if(numX>numY) return X;
+  else return O;
+
+  // for(int j=0; j<3; j++){
+  //   if(board[1][j]==board[1][j+1]) b++;
+  // }
+  // for(int j=0; j<3; j++){
+  //   if(board[2][j]==board[2][j+1]) c++;
+  // }
+  // for(int i=0; i<2; i++){
+  //   if(board[i][0]==board[i+1][0]) d++;
+  // }
+  // for(int i=0; i<2; i++){
+  //   if(board[i][1]==board[i+1][1]) e++;
+  // }
+  // for(int i=0; i<2; i++){
+  //   if(board[i][2]==board[i+1][2]) f++;
+  // }
+  // int winner = std::max(a, b, c, d, e, f);
+  //
+  // return Blank;
 
 }
