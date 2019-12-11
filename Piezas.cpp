@@ -98,7 +98,6 @@ Piece Piezas::gameState(){
       }else runningTotal = 0;
     }
   }
-  runningTotal = 0;
   for(int j=0; j<4; j++){
     for(int i=0; i<2; i++){
       if(board[i][j]==board[i+1][j]){
