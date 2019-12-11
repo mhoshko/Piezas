@@ -89,8 +89,8 @@ Piece Piezas::gameState(){
     }
   }
   int numX = 0, numO = 0, runningTotal = 0;
-  for(int i=0; i<3; i++){
-    for(int j=0; j<3; j++){
+  for(int i=0; i<4; i++){
+    for(int j=0; j<2; j++){
       if(board[i][j]==board[i][j+1]){
         runningTotal++;
         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
