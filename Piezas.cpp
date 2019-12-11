@@ -88,13 +88,13 @@ Piece Piezas::gameState(){
       if(board[i][j] == Blank) return Invalid;
     }
   }
-  int numX = 0, numY = 0, runningTotal = 0;
+  int numX = 0, numO = 0, runningTotal = 0;
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       if(board[i][j]==board[i][j+1]){
         runningTotal+=1;
         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-        else if(board[i][j]==Y && runningTotal>numY) numY = runningTotal;
+        else if(board[i][j]==O && runningTotal>numY) numO = runningTotal;
       }else runningTotal = 0;
     }
   }
@@ -103,12 +103,12 @@ Piece Piezas::gameState(){
       if(board[i][j]==board[i+1][j]){
         runningTotal+=1;
         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-        else if(board[i][j]==Y && runningTotal>numY) numY = runningTotal;
+        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
       }else runningTotal = 0;
     }
   }
-  if(numX == numY) return Blank;
-  else if(numX>numY) return X;
+  if(numX == numO) return Blank;
+  else if(numX>numO) return X;
   else return O;
 
   // for(int j=0; j<3; j++){
