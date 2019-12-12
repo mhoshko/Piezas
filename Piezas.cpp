@@ -130,9 +130,8 @@ Piece Piezas::gameState(){
       if(board[i][j] == Blank) return Invalid;
     }
   }
-  int numX1 = 0, numO1 = 0, runningTotal = 0;
-  int numX2 = 0, num02 = 0;
-  int maxX, maxO;
+  int numX = 0, numO = 0, runningTotal = 0;
+  // int maxX, maxO;
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
       if(board[i][j]==board[i][j+1]){
