@@ -116,28 +116,31 @@ TEST(PiezasTest, OWins){
 }
 
 // X O X X
-// O O X O
+// O X O O
+// // O X O X
+// X O X O
 // O X O X
+// X O X O
 //
-// 11 12 9 7
-// 10  8 5 6
-// 4   1 2 3
+// 9 10 11 12
+// 8  7 6 5
+// 1   2 3 4
 
 
 
 TEST(PiezasTest, Tie){
   Piezas board;
-  board.dropPiece(1);
-	board.dropPiece(2);
-	board.dropPiece(3);
-	board.dropPiece(0);
-	board.dropPiece(2);
-	board.dropPiece(3);
-	board.dropPiece(3);
+  board.dropPiece(0);
 	board.dropPiece(1);
 	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(3);
+	board.dropPiece(2);
+	board.dropPiece(1);
 	board.dropPiece(0);
 	board.dropPiece(0);
 	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
 	ASSERT_EQ(board.gameState(), Blank);
 }
