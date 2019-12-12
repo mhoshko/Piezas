@@ -124,35 +124,35 @@ Piece Piezas::pieceAt(int row, int column){
 
 /*Code I would use if a winner could go both vertically AND horizontally together, not just vertical
 OR horizontal */
-// Piece Piezas::gameState(){
-//   for(int i=0; i<3; i++){
-//     for(int j=0; j<4; j++){
-//       if(board[i][j] == Blank) return Invalid;
-//     }
-//   }
-//   int numX1 = 0, numO1 = 0, runningTotal = 0;
-//   int numX2 = 0, num02 = 0;
-//   int maxX, maxO;
-//   for(int i=0; i<3; i++){
-//     for(int j=0; j<3; j++){
-//       if(board[i][j]==board[i][j+1]){
-//         runningTotal++;
-//         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-//         else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
-//       }else runningTotal = 0;
-//     }
-//   }
-//   for(int j=0; j<4; j++){
-//     for(int i=0; i<2; i++){
-//       if(board[i][j]==board[i+1][j]){
-//         runningTotal++;
-//         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-//         else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
-//       }else runningTotal = 0;
-//     }
-//   }
-//
-//   if(numX == numO) return Blank;
-//   else if(numX>numO) return X;
-//   else return O;
-// }
+Piece Piezas::gameState(){
+  for(int i=0; i<3; i++){
+    for(int j=0; j<4; j++){
+      if(board[i][j] == Blank) return Invalid;
+    }
+  }
+  int numX1 = 0, numO1 = 0, runningTotal = 0;
+  int numX2 = 0, num02 = 0;
+  int maxX, maxO;
+  for(int i=0; i<3; i++){
+    for(int j=0; j<3; j++){
+      if(board[i][j]==board[i][j+1]){
+        runningTotal++;
+        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+      }else runningTotal = 0;
+    }
+  }
+  for(int j=0; j<4; j++){
+    for(int i=0; i<2; i++){
+      if(board[i][j]==board[i+1][j]){
+        runningTotal++;
+        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+      }else runningTotal = 0;
+    }
+  }
+
+  if(numX == numO) return Blank;
+  else if(numX>numO) return X;
+  else return O;
+}
