@@ -82,32 +82,77 @@ Piece Piezas::pieceAt(int row, int column){
  * or horizontally. If both X's and O's have the same max number of pieces in a
  * line, it is a tie.
 **/
-Piece Piezas::gameState(){
-  for(int i=0; i<3; i++){
-    for(int j=0; j<4; j++){
-      if(board[i][j] == Blank) return Invalid;
-    }
-  }
-  int numX = 0, numO = 0, runningTotal = 0;
-  for(int i=0; i<3; i++){
-    for(int j=0; j<3; j++){
-      if(board[i][j]==board[i][j+1]){
-        runningTotal++;
-        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
-      }else runningTotal = 0;
-    }
-  }
-  for(int j=0; j<4; j++){
-    for(int i=0; i<2; i++){
-      if(board[i][j]==board[i+1][j]){
-        runningTotal++;
-        if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-        else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
-      }else runningTotal = 0;
-    }
-  }
-  if(numX == numO) return Blank;
-  else if(numX>numO) return X;
-  else return O;
-}
+
+/*Code for if a winner can only go either vertically or horizontally, not both*/
+// Piece Piezas::gameState(){
+//   for(int i=0; i<3; i++){
+//     for(int j=0; j<4; j++){
+//       if(board[i][j] == Blank) return Invalid;
+//     }
+//   }
+//   int numX1 = 0, numO1 = 0, runningTotal = 0;
+//   int numX2 = 0, num02 = 0;
+//   int maxX, maxO;
+//   for(int i=0; i<3; i++){
+//     for(int j=0; j<3; j++){
+//       if(board[i][j]==board[i][j+1]){
+//         runningTotal++;
+//         if(board[i][j]==X && runningTotal>numX1) numX1 = runningTotal;
+//         else if(board[i][j]==O && runningTotal>numO1) numO1 = runningTotal;
+//       }else runningTotal = 0;
+//     }
+//   }
+//   for(int j=0; j<4; j++){
+//     for(int i=0; i<2; i++){
+//       if(board[i][j]==board[i+1][j]){
+//         runningTotal++;
+//         if(board[i][j]==X && runningTotal>numX2) numX2 = runningTotal;
+//         else if(board[i][j]==O && runningTotal>numO2) numO2 = runningTotal;
+//       }else runningTotal = 0;
+//     }
+//   }
+//   if(numX1>numX2) maxX = numX1;
+//   else maxX = numX2;
+//   if(numO1>numO2) maxO = numO1;
+//   else maxO = numO2;
+//
+//   if(maxX == maxO) return Blank;
+//   else if(maxX>maxO) return X;
+//   else return O;
+// }
+
+
+/*Code I would use if a winner could go both vertically AND horizontally together, not just vertical
+OR horizontal */
+// Piece Piezas::gameState(){
+//   for(int i=0; i<3; i++){
+//     for(int j=0; j<4; j++){
+//       if(board[i][j] == Blank) return Invalid;
+//     }
+//   }
+//   int numX1 = 0, numO1 = 0, runningTotal = 0;
+//   int numX2 = 0, num02 = 0;
+//   int maxX, maxO;
+//   for(int i=0; i<3; i++){
+//     for(int j=0; j<3; j++){
+//       if(board[i][j]==board[i][j+1]){
+//         runningTotal++;
+//         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+//         else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+//       }else runningTotal = 0;
+//     }
+//   }
+//   for(int j=0; j<4; j++){
+//     for(int i=0; i<2; i++){
+//       if(board[i][j]==board[i+1][j]){
+//         runningTotal++;
+//         if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+//         else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+//       }else runningTotal = 0;
+//     }
+//   }
+//
+//   if(numX == numO) return Blank;
+//   else if(numX>numO) return X;
+//   else return O;
+// }
